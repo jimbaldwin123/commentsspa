@@ -24,21 +24,9 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
 
 
-    Route::get('/tasks', 'TaskController@index');
-    Route::post('/task', 'TaskController@store');
-    Route::delete('/task/{task}', 'TaskController@destroy');
-    Route::get('/chart', 'BillsController@getAll');
-    Route::get('/chart/{type}', 'BillsController@getAll');
-    // Route::get('/chart/{type}', 'BillsController@getAll');
-    Route::get('chartapi', function(){ return view('chart', ['type' => 'api']);});
-    // return view('chart', ['bills' => $bills, 'type' => 'db'])
-
-    Route::get('/angular', function () { return view('index');});
+    Route::get('/', function () { return view('index');});
 
 // API ROUTES ==================================
     Route::group(array('prefix' => 'api'), function() {
